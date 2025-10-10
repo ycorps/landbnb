@@ -54,7 +54,8 @@ app.get("/listings/new", (req,res) => {
 //Show-Route
 app.get("/listings/:id", async (req,res) => {
   const {id} = req.params;
-  const listing = await Listing.findById(id);
+  const listing = await Listing.findById(id).populate("reviews");
+  // const review = await Review.findById(listing.reviews);
   res.render("listings/show.ejs",{listing});
 });
 
@@ -96,10 +97,21 @@ app.post("/listings/:id/reviews",async (req,res) => {
 
     await addReview.save();
     await listing.save();
-    res.redirect("/listings");
+      res.redirect(`/listings/${listing._id}`);
+});
+
+//delete-reviews
+app.delete("/listings/:id/reviews/:reviewId",async (req,res) => {
+  const {id, reviewId} = req.params ;
+  await Review.findByIdAndDelete(reviewId);
+  await Listing.findByIdAndUpdate(id, {$pull: {reviews: reviewId}});
+  res.redirect(`/listings/${id}`);
 });
 
 
 app.listen(8080,(req,res) => {
   console.log("Server is listening")
 });
+
+
+
