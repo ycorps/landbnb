@@ -92,7 +92,7 @@ app.delete("/listings/:id", async ( req , res ) =>{
 app.post("/listings/:id/reviews",async (req,res) => {
   let listing = await Listing.findById(req.params.id);
   let addReview = new Review(req.body.review);
-  listing.reviews.push(addReview);
+  listing.reviews.push(addReview._id);
 
     await addReview.save();
     await listing.save();
