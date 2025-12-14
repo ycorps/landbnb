@@ -4,10 +4,14 @@ const mongoose = require("mongoose");
 const path = require("path");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
-const listings = require("./routes/listing.js");
-const reviews = require("./routes/review.js");
+const listingRouter = require("./routes/listing.js");
+const reviewRouter = require("./routes/review.js");
+const userRouter = require("./routes/user.js");
 const session = require('express-session');
 const flash = require('connect-flash');
+const User = require("./models/user.js");
+const passport = require("passport");
+const LocalStrategy = require("passport-local");
 
 //connecting mongodb
 async function main() {
@@ -40,6 +44,14 @@ app.use(session(sessionOptions));
 // 2. Flash Middleware comes AFTER session
 app.use(flash());
 
+// 3. Passport Middleware
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+
 // 3. Locals Middleware (Optional but Recommended)
 // This lets you use <%= success %> in your EJS files automatically
 app.use((req, res, next) => {
@@ -54,10 +66,12 @@ app.get("/", (req, res) => {
 });
 
 //Review-Route
-app.use("/listings/:id/reviews", reviews);
+app.use("/listings/:id/reviews", reviewRouter);
 
 //Listing-Route
-app.use("/listings", listings);
+app.use("/listings", listingRouter);
+
+app.use("/", userRouter);
 
 app.listen(8080, (req, res) => {
   console.log("Server is listening")

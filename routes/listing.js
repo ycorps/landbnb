@@ -20,6 +20,10 @@ router.get("/:id", wrapAsync(async (req, res) => {
   const { id } = req.params;
   const listing = await Listing.findById(id).populate("reviews");
   // const review = await Review.findById(listing.reviews);
+  if(!listing){
+    req.flash("error","Entry Does not exist!");
+    res.redirect("/listings");
+  }
   res.render("listings/show.ejs", { listing });
 }));
 
@@ -27,7 +31,6 @@ router.get("/:id", wrapAsync(async (req, res) => {
 router.post("/",wrapAsync( async (req, res) => {
   const addListing = new Listing(req.body.listing);
   await addListing.save();
-  req.flash("success", "New Successful");
   req.flash("success","New Entry Created Successfully!!");
   res.redirect("/listings");
 }));
