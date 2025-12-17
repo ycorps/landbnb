@@ -57,6 +57,7 @@ passport.deserializeUser(User.deserializeUser());
 app.use((req, res, next) => {
   res.locals.success = req.flash("success");
   res.locals.error = req.flash("error");
+  res.locals.currentUser = req.user;
   next();
 });
 
@@ -65,8 +66,6 @@ app.get("/", (req, res) => {
   res.send("Hi i am listening..")
 });
 
-//Review-Route
-app.use("/listings/:id/reviews", reviewRouter);
 
 //Listing-Route
 app.use("/listings", listingRouter);

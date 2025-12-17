@@ -12,4 +12,13 @@
       </div>
     </div>
   </div>
+  <%if(currentUser){%>
+    <form action="/logout" method="get" class = "px-5">
+    <button type="submit" class="btn btn-outline-danger">Logout</button>
+  </form>
+  <%}else{%>
+    <form action="/login" method="get" class = "px-5">
+    <button type="submit" class="btn btn-outline-danger">Login</button>
+  </form>
+  <%}%>
 </nav>
