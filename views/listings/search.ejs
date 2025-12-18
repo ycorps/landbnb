@@ -1,0 +1,52 @@
+<%layout('layouts/boilerplate')%>
+
+<div class="container mt-4">
+  <div class="row mb-4">
+    <div class="col-12">
+      <h2>Search Results</h2>
+      <p class="text-muted">
+        Found <strong><%= resultCount %></strong> 
+        <%= resultCount === 1 ? 'result' : 'results' %> 
+        for "<strong><%= query %></strong>"
+      </p>
+      <a href="/listings" class="btn btn-outline-secondary btn-sm">Back to All Listings</a>
+    </div>
+  </div>
+
+  <% if(searchResults.length > 0) { %>
+    <div class="row">
+      <% searchResults.forEach((listing) => { %>
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="card h-100 shadow-sm">
+            <% if(listing.image) { %>
+              <img src="<%= listing.image.url %>" class="card-img-top" alt="<%= listing.title %>" style="height: 250px; object-fit: cover;">
+            <% } %>
+            <div class="card-body">
+              <h5 class="card-title"><%= listing.title %></h5>
+              <p class="card-text text-muted">
+                <i class="fa-solid fa-location-dot"></i> 
+                <%= listing.location %>, <%= listing.country %>
+              </p>
+              <p class="card-text"><%= listing.description.substring(0, 80) %>...</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="h5 mb-0">₹<%= listing.price %>/night</span>
+                <a href="/listings/<%= listing._id %>" class="btn btn-sm btn-primary">View Details</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% }); %>
+    </div>
+  <% } else { %>
+    <div class="row">
+      <div class="col-12">
+        <div class="alert alert-info text-center" role="alert">
+          <h4 class="alert-heading">No Results Found</h4>
+          <p>Sorry, we couldn't find any listings matching "<strong><%= query %></strong>"</p>
+          <hr>
+          <p class="mb-0">Try searching for different keywords or <a href="/listings">view all listings</a>.</p>
+        </div>
+      </div>
+    </div>
+  <% } %>
+</div>

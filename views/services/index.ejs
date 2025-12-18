@@ -1,0 +1,230 @@
+<%layout('layouts/boilerplate')%>
+
+<div class="container">
+  <!-- Hero Section -->
+  <div class="row mt-5 mb-5">
+    <div class="col-12">
+      <h1 class="display-4 fw-bold">Premium Travel Services</h1>
+      <p class="lead text-muted">Enhance your travel experience with our comprehensive range of professional services.</p>
+      <hr class="my-4">
+    </div>
+  </div>
+
+  <!-- Main Services -->
+  <div class="row mb-5">
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 border-0 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">🚗 Airport Transfers</h5>
+          <p class="card-text">Convenient and reliable transportation from airports to your destination. Professional drivers and comfortable vehicles.</p>
+          <a href="/listings" class="btn btn-outline-primary">Book Now</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 border-0 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">🗺️ Tour Guides</h5>
+          <p class="card-text">Professional guides for exploring cities and landmarks. Get insider knowledge and skip-the-line access.</p>
+          <a href="/listings" class="btn btn-outline-primary">Book Now</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 border-0 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">✈️ Travel Planning</h5>
+          <p class="card-text">Expert assistance in planning your perfect trip. Customized itineraries and local recommendations.</p>
+          <a href="/listings" class="btn btn-outline-primary">Book Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Featured Listings Section -->
+  <div class="row mb-5">
+    <div class="col-12">
+      <h2 class="mb-4">Available Services</h2>
+    </div>
+    <% if(alllistings.length > 0) { %>
+      <% alllistings.forEach((listing) => { %>
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="card h-100 shadow-sm">
+            <% if(listing.image) { %>
+              <img src="<%= listing.image.url %>" class="card-img-top" alt="<%= listing.title %>" style="height: 250px; object-fit: cover;">
+            <% } %>
+            <div class="card-body">
+              <h5 class="card-title"><%= listing.title %></h5>
+              <p class="card-text text-muted"><%= listing.location %>, <%= listing.country %></p>
+              <p class="card-text"><%= listing.description.substring(0, 100) %>...</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="h5 mb-0">₹<%= listing.price %>/day</span>
+                <a href="/listings/<%= listing._id %>" class="btn btn-sm btn-primary">View Details</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% }); %>
+    <% } else { %>
+      <div class="col-12">
+        <p class="text-center text-muted">No services available yet. Check back soon!</p>
+      </div>
+    <% } %>
+  </div>
+
+  <!-- Additional Services -->
+  <div class="row mb-5">
+    <div class="col-12">
+      <h2 class="mb-4">Other Premium Services</h2>
+    </div>
+    <div class="col-md-6 mb-4">
+      <div class="card border-0 bg-light">
+        <div class="card-body">
+          <h5 class="card-title">🏨 Hotel & Accommodation</h5>
+          <p class="card-text">Curated selections of hotels, hostels, and unique stays tailored to your budget and preferences.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 mb-4">
+      <div class="card border-0 bg-light">
+        <div class="card-body">
+          <h5 class="card-title">🚌 Group Tours</h5>
+          <p class="card-text">Join group tours with other travelers and explore destinations together with expert guides.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 mb-4">
+      <div class="card border-0 bg-light">
+        <div class="card-body">
+          <h5 class="card-title">📷 Photography Services</h5>
+          <p class="card-text">Professional photographers to capture your travel memories in stunning locations.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 mb-4">
+      <div class="card border-0 bg-light">
+        <div class="card-body">
+          <h5 class="card-title">🎫 Ticket Booking</h5>
+          <p class="card-text">Skip-the-line access to museums, attractions, and shows with our booking assistance.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Service Features -->
+  <div class="row mb-5 bg-light p-5 rounded">
+    <div class="col-12">
+      <h2 class="mb-4">Our Service Guarantees</h2>
+    </div>
+    <div class="col-md-3 mb-4">
+      <div class="text-center">
+        <h6 class="fw-bold">✓ Professional Staff</h6>
+        <p class="text-muted">Trained and experienced service providers.</p>
+      </div>
+    </div>
+    <div class="col-md-3 mb-4">
+      <div class="text-center">
+        <h6 class="fw-bold">✓ Best Price Guarantee</h6>
+        <p class="text-muted">Competitive pricing with no hidden charges.</p>
+      </div>
+    </div>
+    <div class="col-md-3 mb-4">
+      <div class="text-center">
+        <h6 class="fw-bold">✓ On-Time Service</h6>
+        <p class="text-muted">Punctual and reliable service delivery.</p>
+      </div>
+    </div>
+    <div class="col-md-3 mb-4">
+      <div class="text-center">
+        <h6 class="fw-bold">✓ Customizable Options</h6>
+        <p class="text-muted">Tailor services to your specific needs.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- How It Works -->
+  <div class="row mb-5">
+    <div class="col-12">
+      <h2 class="mb-4">How Our Services Work</h2>
+    </div>
+    <div class="col-md-3 text-center mb-4">
+      <div class="bg-primary text-white rounded-circle p-4" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-size: 24px;">1</div>
+      <h5 class="mt-3">Browse Services</h5>
+      <p class="text-muted">Explore our comprehensive range of travel services.</p>
+    </div>
+    <div class="col-md-3 text-center mb-4">
+      <div class="bg-primary text-white rounded-circle p-4" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-size: 24px;">2</div>
+      <h5 class="mt-3">Select & Book</h5>
+      <p class="text-muted">Choose your desired service and book instantly.</p>
+    </div>
+    <div class="col-md-3 text-center mb-4">
+      <div class="bg-primary text-white rounded-circle p-4" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-size: 24px;">3</div>
+      <h5 class="mt-3">Confirmation</h5>
+      <p class="text-muted">Receive instant confirmation and details.</p>
+    </div>
+    <div class="col-md-3 text-center mb-4">
+      <div class="bg-primary text-white rounded-circle p-4" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-size: 24px;">4</div>
+      <h5 class="mt-3">Enjoy</h5>
+      <p class="text-muted">Experience hassle-free travel service.</p>
+    </div>
+  </div>
+
+  <!-- FAQ Section -->
+  <div class="row mb-5">
+    <div class="col-12">
+      <h2 class="mb-4">Frequently Asked Questions</h2>
+    </div>
+    <div class="col-md-8 mx-auto">
+      <div class="accordion" id="faqAccordion">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+              Can I modify my booking?
+            </button>
+          </h2>
+          <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Yes, you can modify your booking up to 24 hours before the service date. Contact our support team for assistance.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+              What is your cancellation policy?
+            </button>
+          </h2>
+          <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Cancellations made 48 hours before the service are fully refundable. Cancellations within 48 hours may incur a fee.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+              Do you offer group discounts?
+            </button>
+          </h2>
+          <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Yes, special group discounts are available for bookings of 5 or more people. Contact our sales team for a quote.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA Section -->
+  <div class="row mb-5 bg-success text-white p-5 rounded text-center">
+    <div class="col-12">
+      <h2>Book Your Service Today</h2>
+      <p class="lead mt-3">Make your travel experience unforgettable with our professional services.</p>
+      <a href="/listings" class="btn btn-light btn-lg mt-3">View All Services</a>
+    </div>
+  </div>
+</div>
+

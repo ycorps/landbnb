@@ -6,6 +6,34 @@ module.exports.index = async (req, res) => {
     res.render("listings/index.ejs", { alllistings });
 }
 
+module.exports.searchListings = async (req, res) => {
+    const { query } = req.query;
+    
+    if (!query || query.trim() === "") {
+        return res.redirect("/listings");
+    }
+
+    try {
+        const searchResults = await Listing.find({
+            $or: [
+                { title: { $regex: query, $options: "i" } },
+                { description: { $regex: query, $options: "i" } },
+                { location: { $regex: query, $options: "i" } },
+                { country: { $regex: query, $options: "i" } }
+            ]
+        });
+
+        res.render("listings/search.ejs", { 
+            searchResults, 
+            query,
+            resultCount: searchResults.length 
+        });
+    } catch (err) {
+        req.flash("error", "Error searching listings");
+        res.redirect("/listings");
+    }
+}
+
 module.exports.renderNewForm = (req, res) => {
     res.render("listings/new.ejs")
 }

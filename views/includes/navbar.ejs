@@ -7,8 +7,46 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-link" href="/listings">Explore</a>
-        <a class="nav-link" href="/listings/new">Rent your home</a>
+        <a class="nav-link" href="/listings/new">Become a host</a>
       </div>
+      <!-- Center Features -->
+      <div class="navbar-nav flex-grow-1 d-flex justify-content-center">
+        <div class="d-flex gap-4 align-items-center justify-content-center">
+          <a href="/listings" class="text-decoration-none text-dark text-center">
+            <div style="font-size: 24px; margin-bottom: 5px;"><i class="fa-regular fa-building"></i></div>
+            <div style="font-size: 12px;">Homes</div>
+          </a>
+          <a href="/experiences" class="text-decoration-none text-dark text-center">
+            <div style="font-size: 24px; margin-bottom: 5px;"><i class="fa-regular fa-map"></i></div>
+            <div style="font-size: 12px;">Experiences</div>
+          </a>
+          <a href="/services" class="text-decoration-none text-dark text-center">
+            <div style="font-size: 24px; margin-bottom: 5px;"><i class="fa-regular fa-star"></i></div>
+            <div style="font-size: 12px;">Services</div>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Search Bar -->
+      <form class="d-flex ms-3" action="/listings/search" method="GET" role="search">
+        <div class="input-group" style="width: 300px;">
+          <input 
+            class="form-control" 
+            type="search" 
+            placeholder="Search by location, title..." 
+            aria-label="Search" 
+            name="query"
+            style="border-radius: 20px 0 0 20px; border: 2px solid #e0e0e0; padding: 8px 16px; font-size: 14px;"
+          >
+          <button 
+            class="btn btn-primary" 
+            type="submit"
+            style="border-radius: 0 20px 20px 0; padding: 8px 16px; border: 2px solid #0d6efd;"
+          >
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+      </form>
     </div>
   </div>
   <%if(currentUser){%>

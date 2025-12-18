@@ -1,0 +1,171 @@
+<%layout('layouts/boilerplate')%>
+
+<div class="container">
+  <!-- Hero Section -->
+  <div class="row mt-5 mb-5">
+    <div class="col-12">
+      <h1 class="display-4 fw-bold">Unforgettable Experiences</h1>
+      <p class="lead text-muted">Discover unique experiences from local hosts around the world. Create memories that last a lifetime.</p>
+      <hr class="my-4">
+    </div>
+  </div>
+
+  <!-- Featured Categories -->
+  <div class="row mb-5">
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 border-0 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">🎭 Local Experiences</h5>
+          <p class="card-text">Join local guides for authentic cultural experiences. Learn traditions, taste local cuisine, and connect with communities.</p>
+          <a href="/listings" class="btn btn-outline-primary">Explore</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 border-0 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">🏔️ Adventure Activities</h5>
+          <p class="card-text">Thrilling outdoor activities and sports experiences. From hiking to water sports, find your next adrenaline rush.</p>
+          <a href="/listings" class="btn btn-outline-primary">Explore</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 border-0 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">🍽️ Culinary Experiences</h5>
+          <p class="card-text">Taste local cuisines and learn traditional cooking. Experience food culture through expert-led classes and tours.</p>
+          <a href="/listings" class="btn btn-outline-primary">Explore</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Featured Listings Section -->
+  <div class="row mb-5">
+    <div class="col-12">
+      <h2 class="mb-4">Popular Experiences</h2>
+    </div>
+    <% if(alllistings.length > 0) { %>
+      <% alllistings.forEach((listing) => { %>
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="card h-100 shadow-sm">
+            <% if(listing.image) { %>
+              <img src="<%= listing.image.url %>" class="card-img-top" alt="<%= listing.title %>" style="height: 250px; object-fit: cover;">
+            <% } %>
+            <div class="card-body">
+              <h5 class="card-title"><%= listing.title %></h5>
+              <p class="card-text text-muted"><%= listing.location %>, <%= listing.country %></p>
+              <p class="card-text"><%= listing.description.substring(0, 100) %>...</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="h5 mb-0">₹<%= listing.price %>/night</span>
+                <a href="/listings/<%= listing._id %>" class="btn btn-sm btn-primary">View Details</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% }); %>
+    <% } else { %>
+      <div class="col-12">
+        <p class="text-center text-muted">No experiences available yet. Check back soon!</p>
+      </div>
+    <% } %>
+  </div>
+
+  <!-- Why Choose Our Experiences -->
+  <div class="row mb-5 bg-light p-5 rounded">
+    <div class="col-12">
+      <h2 class="mb-4">Why Choose Our Experiences?</h2>
+    </div>
+    <div class="col-md-3 mb-4">
+      <div class="text-center">
+        <h6 class="fw-bold">✓ Verified Hosts</h6>
+        <p class="text-muted">All hosts are verified and rated by the community.</p>
+      </div>
+    </div>
+    <div class="col-md-3 mb-4">
+      <div class="text-center">
+        <h6 class="fw-bold">✓ Flexible Booking</h6>
+        <p class="text-muted">Easy cancellation and flexible scheduling options.</p>
+      </div>
+    </div>
+    <div class="col-md-3 mb-4">
+      <div class="text-center">
+        <h6 class="fw-bold">✓ Safety Assured</h6>
+        <p class="text-muted">Your safety is our top priority with secure bookings.</p>
+      </div>
+    </div>
+    <div class="col-md-3 mb-4">
+      <div class="text-center">
+        <h6 class="fw-bold">✓ 24/7 Support</h6>
+        <p class="text-muted">Round-the-clock customer support available.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Experience Categories -->
+  <div class="row mb-5">
+    <div class="col-12">
+      <h2 class="mb-4">Browse by Category</h2>
+    </div>
+    <div class="col-md-6 mb-3">
+      <div class="list-group">
+        <a href="/listings" class="list-group-item list-group-item-action">🎨 Arts & Culture</a>
+        <a href="/listings" class="list-group-item list-group-item-action">🚴 Sports & Outdoor</a>
+        <a href="/listings" class="list-group-item list-group-item-action">🎵 Music & Performance</a>
+        <a href="/listings" class="list-group-item list-group-item-action">📚 Workshops & Classes</a>
+      </div>
+    </div>
+    <div class="col-md-6 mb-3">
+      <div class="list-group">
+        <a href="/listings" class="list-group-item list-group-item-action">🌍 Travel & Adventure</a>
+        <a href="/listings" class="list-group-item list-group-item-action">👨‍🍳 Food & Drink</a>
+        <a href="/listings" class="list-group-item list-group-item-action">🧘 Wellness & Fitness</a>
+        <a href="/listings" class="list-group-item list-group-item-action">🎓 Education & Training</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Testimonials -->
+  <div class="row mb-5 bg-light p-5 rounded">
+    <div class="col-12">
+      <h2 class="mb-4">Guest Reviews</h2>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="card border-0">
+        <div class="card-body">
+          <p class="card-text">"An incredible experience! The host was amazing and made my trip unforgettable."</p>
+          <p class="text-muted">⭐⭐⭐⭐⭐ - Sarah M.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="card border-0">
+        <div class="card-body">
+          <p class="card-text">"Best decision ever! Highly recommended for anyone looking for authentic experiences."</p>
+          <p class="text-muted">⭐⭐⭐⭐⭐ - James K.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="card border-0">
+        <div class="card-body">
+          <p class="card-text">"A wonderful way to connect with locals and experience culture. Worth every penny!"</p>
+          <p class="text-muted">⭐⭐⭐⭐⭐ - Emma L.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA Section -->
+  <div class="row mb-5 bg-primary text-white p-5 rounded text-center">
+    <div class="col-12">
+      <h2>Ready to Book Your Experience?</h2>
+      <p class="lead mt-3">Browse through thousands of unique experiences and find your next adventure.</p>
+      <a href="/listings" class="btn btn-light btn-lg mt-3">View All Listings</a>
+    </div>
+  </div>
+</div>
+

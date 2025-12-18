@@ -9,6 +9,8 @@ const ejsMate = require("ejs-mate");
 const listingRouter = require("./routes/listing.js");
 const reviewRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
+const experiencesRouter = require("./routes/experiences.js");
+const servicesRouter = require("./routes/services.js");
 const session = require('express-session');
 const flash = require('connect-flash');
 const User = require("./models/user.js");
@@ -70,6 +72,12 @@ app.use("/listings", listingRouter);
 
 //Review Route
 app.use("/listings", reviewRouter);
+
+//Experiences Route
+app.use("/experiences", experiencesRouter);
+
+//Services Route
+app.use("/services", servicesRouter);
 
 app.use("/", userRouter);
 
