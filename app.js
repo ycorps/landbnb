@@ -63,10 +63,6 @@ app.use((req, res, next) => {
   next();
 });
 
-//Home-Route
-app.get("/", (req, res) => {
-  res.send("Hi i am listening..")
-});
 
 
 //Listing-Route
