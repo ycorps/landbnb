@@ -13,16 +13,25 @@ const experiencesRouter = require("./routes/experiences.js");
 const servicesRouter = require("./routes/services.js");
 const session = require('express-session');
 const flash = require('connect-flash');
+const MongoStore = require('connect-mongo');
 const User = require("./models/user.js");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 
-//connecting mongodb
+// MongoDB Connection
+const dbUrl = process.env.ATLASDB_URL;
+
 async function main() {
-  await mongoose.connect("mongodb://127.0.0.1:27017/Wanderlust");
-  console.log("MongoDb Connected");
-};
-main().catch(err => console.log(err));
+  try {
+    await mongoose.connect(dbUrl);
+    console.log("MongoDB Connected Successfully!");
+  } catch (err) {
+    console.error("MongoDB Connection Error:", err.message);
+    console.log("Make sure MongoDB is running");
+    process.exit(1);
+  }
+}
+main();
 
 //middleware setup
 app.set("view engine", "ejs");
@@ -34,12 +43,16 @@ app.engine("ejs", ejsMate);
 
 // 1. Session Middleware MUST come first
 const sessionOptions = {
+  store: MongoStore.create({
+    mongoUrl: process.env.ATLASDB_URL,
+    touchAfter: 24 * 3600 // Lazy session update (24 hours)
+  }),
   secret: 'thisshouldbeabettersecret!',
   resave: false,
-  saveUninitialized: true,
+  saveUninitialized: false, // Changed to false for GDPR compliance
   cookie: {
     httpOnly: true,
-    expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7), // 7 days (optional)
+    expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7), // 7 days
     maxAge: 1000 * 60 * 60 * 24 * 7
   }
 };
