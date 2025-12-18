@@ -426,14 +426,14 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 **Your Name/Organization**
 - 🌐 Website: [landbnb3.onrender.com](https://landbnb3.onrender.com/listings)
-- 💼 LinkedIn: [@yourprofile](https://linkedin.com/in/yshail)
+- 💼 LinkedIn: [@yshail](https://linkedin.com/in/yshail)
 - 🐙 GitHub: [@yshail](https://github.com/yshail)
 
 ---
 
 ## 📞 Contact & Support
 
-- 📧 Email: support@landbnb.com
+- 📧 Email: support@shaileshyadav.in
 - 💬 Issues: [GitHub Issues](https://github.com/yourusername/landbnb/issues)
 - 💭 Discussions: [GitHub Discussions](https://github.com/yourusername/landbnb/discussions)
 
