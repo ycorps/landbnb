@@ -17,6 +17,9 @@ const MongoStore = require('connect-mongo').default || require('connect-mongo');
 const User = require("./models/user.js");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
+const listingController = require("./controllers/listings.js");
+const wrapAsync = require("./utils/wrapAsync.js");
+
 
 // MongoDB Connection
 const dbUrl = process.env.ATLASDB_URL;
@@ -83,6 +86,7 @@ app.use((req, res, next) => {
 });
 
 
+  app.get("/", wrapAsync(listingController.index));
 
 
 //Listing-Route
@@ -99,9 +103,7 @@ app.use("/services", servicesRouter);
 
 app.use("/", userRouter);
 
-app.get("*", (req, res) => {
-  res.render("index.ejs");
-});
+
 
 app.listen(8080, (req, res) => {
   console.log("Server is listening")
