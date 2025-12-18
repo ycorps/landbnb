@@ -84,6 +84,7 @@ app.use((req, res, next) => {
 
 
 
+
 //Listing-Route
 app.use("/listings", listingRouter);
 
@@ -97,6 +98,10 @@ app.use("/experiences", experiencesRouter);
 app.use("/services", servicesRouter);
 
 app.use("/", userRouter);
+
+app.get("*", (req, res) => {
+  res.render("index.ejs");
+});
 
 app.listen(8080, (req, res) => {
   console.log("Server is listening")
