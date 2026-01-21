@@ -22,47 +22,6 @@ Whether you're looking for a cozy apartment in Paris, an adventure experience in
 
 ---
 
-## ✨ Key Features
-
-### 🏠 **Homes & Accommodations**
-- Browse thousands of verified properties worldwide
-- Advanced filtering and search capabilities
-- High-quality images and detailed descriptions
-- Real-time availability checking
-- Secure booking system
-
-### 🎭 **Unique Experiences**
-- Local cultural experiences led by expert guides
-- Adventure activities and outdoor experiences
-- Culinary tours and cooking classes
-- Workshops and educational classes
-- Authentic connections with local communities
-
-### 🛎️ **Premium Services**
-- Professional airport transfers
-- Expert tour guide booking
-- Personalized travel planning
-- Hotel & accommodation curation
-- Skip-the-line attraction tickets
-- Professional photography services
-
-### 🔍 **Powerful Search**
-- Real-time search across all listings
-- Multi-criteria filtering
-- Intelligent search results
-- Location-based discovery
-- Smart recommendations
-
-### 👤 **User Features**
-- Secure user authentication
-- Personalized profiles
-- Booking history and management
-- Wishlist functionality
-- Community reviews and ratings
-- Host dashboard for property management
-
----
-
 ## 🛠️ Tech Stack
 
 <div align="center">
@@ -171,32 +130,6 @@ landbnb/
    ```
    http://localhost:8080
    ```
-
----
-
-## 📱 Features Showcase
-
-### 🎨 **Modern UI/UX**
-- Responsive design for all devices
-- Intuitive navigation
-- Beautiful card-based layouts
-- Smooth animations and transitions
-- Dark/Light theme support ready
-
-### 🔐 **Security**
-- Password hashing with bcrypt
-- CSRF protection
-- Session-based authentication
-- Secure file uploads
-- Input validation and sanitization
-
-### 📊 **Advanced Features**
-- Real-time search with filters
-- User reviews and ratings system
-- Property image galleries
-- Booking management system
-- User profile customization
-- Host dashboard
 
 ---
 
