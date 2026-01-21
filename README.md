@@ -1,4 +1,4 @@
-# 🌍 LANDBNB - Your Gateway to Unforgettable Journeys
+# 🌍 LANDBNB - Travel Booking Site
 
 > **Modern Travel Experience Platform | Discover • Book • Explore**
 
@@ -216,54 +216,9 @@ landbnb/
 
 ---
 
-## 📚 API Endpoints
 
-### Listings
-- `GET /listings` - Get all listings
-- `GET /listings/search` - Search listings
-- `GET /listings/:id` - Get listing details
-- `POST /listings` - Create new listing
-- `PUT /listings/:id` - Update listing
-- `DELETE /listings/:id` - Delete listing
 
-### Reviews
-- `POST /listings/:id/reviews` - Add review
-- `DELETE /listings/:id/reviews/:reviewId` - Delete review
 
-### Users
-- `GET /signup` - Signup page
-- `POST /signup` - Register user
-- `GET /login` - Login page
-- `POST /login` - Authenticate user
-- `GET /logout` - Logout user
-
----
-
-## 🎯 Usage Examples
-
-### Search for Accommodations
-1. Navigate to the **Homes** section
-2. Use the search bar to find listings
-3. Filter by location, price, or amenities
-4. View detailed information
-5. Read reviews from other travelers
-6. Book your stay
-
-### Browse Experiences
-1. Click on **Experiences** in the navbar
-2. Explore various local activities
-3. View host profiles and reviews
-4. Book your desired experience
-5. Enjoy unforgettable moments
-
-### Find Services
-1. Visit the **Services** section
-2. Browse available travel services
-3. Check professional credentials
-4. Read customer testimonials
-5. Book your preferred service
-
----
 
 ## 🔄 Data Models
 
@@ -304,157 +259,18 @@ landbnb/
 }
 ```
 
----
+## 👨‍💻 Links
 
-## 🚀 Deployment
-
-### Deploy to Heroku
-
-1. **Install Heroku CLI**
-   ```bash
-   npm install -g heroku
-   ```
-
-2. **Login to Heroku**
-   ```bash
-   heroku login
-   ```
-
-3. **Create Heroku App**
-   ```bash
-   heroku create your-app-name
-   ```
-
-4. **Set Environment Variables**
-   ```bash
-   heroku config:set MONGODB_URI=your_mongo_uri
-   heroku config:set CLOUDINARY_NAME=your_value
-   # ... set other variables
-   ```
-
-5. **Deploy**
-   ```bash
-   git push heroku main
-   ```
-
-### Deploy to Other Platforms
-- **Vercel** - For frontend
-- **Render** - Full-stack deployment
-- **AWS** - Enterprise hosting
-- **DigitalOcean** - VPS hosting
-
----
-
-## 🐛 Troubleshooting
-
-### Port Already in Use
-```bash
-# Find process using port 8080
-lsof -i :8080
-
-# Kill process
-kill -9 <PID>
-```
-
-### MongoDB Connection Issues
-- Ensure MongoDB is running
-- Check connection string in `.env`
-- Verify network access if using MongoDB Atlas
-
-### Image Upload Failures
-- Verify Cloudinary credentials
-- Check API key and secret
-- Ensure image file size is acceptable
-
-### Authentication Issues
-- Clear browser cookies
-- Check session secret in `.env`
-- Verify password hashing
-
----
-
-## 📈 Future Enhancements
-
-- ✅ Payment gateway integration (Stripe/Razorpay)
-- ✅ Real-time notifications
-- ✅ Advanced booking calendar
-- ✅ Map integration (Google Maps)
-- ✅ Multi-language support
-- ✅ Mobile app (React Native)
-- ✅ AI-powered recommendations
-- ✅ Video property tours
-- ✅ Social media integration
-- ✅ Advanced analytics dashboard
-
----
-
-## 🤝 Contributing
-
-We welcome contributions! Here's how you can help:
-
-1. **Fork the Repository**
-   ```bash
-   git clone https://github.com/yshail/landbnb.git
-   ```
-
-2. **Create Feature Branch**
-   ```bash
-   git checkout -b feature/AmazingFeature
-   ```
-
-3. **Commit Changes**
-   ```bash
-   git commit -m 'Add some AmazingFeature'
-   ```
-
-4. **Push to Branch**
-   ```bash
-   git push origin feature/AmazingFeature
-   ```
-
-5. **Open a Pull Request**
-
----
-
-## 📝 License
-
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
-
----
-
-## 👨‍💻 Author
-
-**Your Name/Organization**
-- 🌐 Website: [landbnb3.onrender.com](https://landbnb3.onrender.com/listings)
+- 🌐 Website: [landbnb.shaileshyadav.in](https://landbnb.shaileshyadav.in)
 - 💼 LinkedIn: [@yshail](https://linkedin.com/in/yshail)
 - 🐙 GitHub: [@yshail](https://github.com/yshail)
+- 📧 Email: contact@shaileshyadav.in
 
 ---
 
-## 📞 Contact & Support
-
-- 📧 Email: support@shaileshyadav.in
-- 💬 Issues: [GitHub Issues](https://github.com/yourusername/landbnb/issues)
-- 💭 Discussions: [GitHub Discussions](https://github.com/yourusername/landbnb/discussions)
-
----
-
-## 🙏 Acknowledgments
-
-- **Bootstrap** - Beautiful responsive design
-- **MongoDB** - Powerful database
-- **Express.js** - Flexible web framework
-- **Passport.js** - Authentication made simple
-- **Cloudinary** - Image hosting solution
-- **Font Awesome** - Amazing icons
-
----
 
 <div align="center">
 
-### ⭐ If you found this helpful, please give us a star!
-
-**Happy Traveling with LANDBNB!** 🌍✈️
 
 [⬆ back to top](#-landbnb---your-gateway-to-unforgettable-journeys)
 
