@@ -14,14 +14,6 @@
 
 ---
 
-## 🎯 About LANDBNB
-
-**LANDBNB** is a sophisticated travel booking platform designed to revolutionize how travelers discover and experience unique accommodations and services worldwide. Built with modern web technologies, LANDBNB connects travelers with exceptional homes, curated experiences, and premium travel services.
-
-Whether you're looking for a cozy apartment in Paris, an adventure experience in Bali, or a professional tour guide in Rome, LANDBNB has it all!
-
----
-
 ## 🛠️ Tech Stack
 
 <div align="center">
